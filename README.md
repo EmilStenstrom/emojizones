@@ -61,8 +61,18 @@ Couldn't be simpler!
         "2020-03-07 00:00:00", 
         "🥖", 
         "🥖➕4️⃣✖3️⃣➗2️⃣➖1️⃣"
-    ),
+    )
     # 2020-03-07 05:00:00
+    ```
+
+3. This means you can use this as a calculator if you want! Let's say you want to calculate `4 * 3`.
+
+    ```python
+    from_time = datetime(2000, 1, 1, 0, 0, 0)
+    time_difference = convert(from_time, "👨‍🎤", "👨‍🎤➕4️⃣✖3️⃣").replace(tzinfo=None) - from_time
+    hours = time_difference.total_seconds() / (60 * 60)
+    hours
+    # 12
     ```
 
 <!-- Don't add stuff after the below heading, it will be overwritten by docs_from_lookup -->
