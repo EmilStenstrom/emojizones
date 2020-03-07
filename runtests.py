@@ -84,7 +84,7 @@ class ConvertTest(unittest.TestCase):
 
     def test_all_timezones_in_lookup_table_are_valid(self):
         for timezone in EMOJI_TO_TIMEZONE.values():
-            self.assertIn(timezone, pytz.all_timezones)
+            self.assertIn(timezone, pytz.common_timezones)
 
 
 if __name__ == "__main__":
