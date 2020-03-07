@@ -1,1 +1,1 @@
-from emojizones.convert import convert  # NOQA
+from emojizones.convert import convert, EmojiZoneException  # NOQA

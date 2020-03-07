@@ -43,6 +43,28 @@ Couldn't be simpler!
     # 2020-03-07 01:00:00
     ```
 
+2. Some contries have multiple time zones, but no emoji to represent them. Luckily, you can use emoji aritmetics to append a UTC offset to your time zone!
+
+    ```python
+    convert(
+        "2020-03-07 00:00:00",
+        "🗽",  # Sweden --> Europe/Stockholm
+        "🗽➕4️⃣"   # Finland --> Europe/Helsinki
+    )
+    # 2020-03-07 04:00:00
+    ```
+
+    You can even do emoji aritmetic with complex statments... Here's somthing that evaluates to Europe/Paris + 5 hours.
+
+    ```python
+    convert(
+        "2020-03-07 00:00:00", 
+        "🥖", 
+        "🥖+4️⃣*3️⃣/2️⃣-1️⃣"
+    ),
+    # 2020-03-07 05:00:00
+    ```
+
 <!-- Don't add stuff after the below heading, it will be overwritten by docs_from_lookup -->
 ## Supported emojis
 
