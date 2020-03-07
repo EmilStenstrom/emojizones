@@ -27,9 +27,9 @@ NATURE = {
 # https://emojipedia.org/food-drink/
 FOOD_DRINK = {
     "🍊": "Africa/Casablanca",  # Orange-colored citrus fruit, originally from Tangier, Morocco
-    "🥐": "Europe/Paris",
-    "🥖": "Europe/Paris",
-    "🥨": "Europe/Berlin",
+    "🥐": "Europe/Paris",  # Croissant, France
+    "🥖": "Europe/Paris",  # Baguette, France
+    "🥨": "Europe/Berlin",  # Pretzel, Germany
     "🥯": "Europe/Warsaw",  # A bagel is a bread product originating in the Jewish communities of Poland
     "🍟": "Europe/Paris",  # FRENCH fries
     "🌮": "America/Mexico_City",  # A Mexican or Tex-Mex taco on a hard or soft corn tortilla
