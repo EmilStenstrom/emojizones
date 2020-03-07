@@ -25,3 +25,8 @@ to_time = convert(
 print(to_time)
 # 2020-03-06 10:00:00
 ```
+
+Note how time has shifted 14 hours, corresponding to the difference between Japan (UTC+9) and New York (UTC-5).
+
+Couldn't be simpler!
+
