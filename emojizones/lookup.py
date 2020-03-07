@@ -119,6 +119,7 @@ SYMBOLS = {
 
 # https://emojipedia.org/flags/
 FLAGS = {
+    "🎌": "Asia/Tokyo",  # Two Japanese Flags
     "🇦🇩": "Europe/Andorra",  # AD
     "🇦🇪": "Asia/Dubai",  # AE
     "🇦🇫": "Asia/Kabul",  # AF
