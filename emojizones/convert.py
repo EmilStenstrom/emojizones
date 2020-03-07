@@ -45,7 +45,7 @@ def convert(from_dt, from_emoji, to_emoji, as_string=False):
     from_timezone = pytz.timezone(emoji_lookup(from_emoji, from_dt))
     to_timezone = pytz.timezone(emoji_lookup(to_emoji, from_dt))
 
-    from_dt = from_timezone.localize(from_dt)
+    from_dt = from_timezone.localize(from_dt.replace(tzinfo=None))
     to_dt = from_dt.astimezone(to_timezone)
 
     if as_string:
@@ -103,7 +103,7 @@ def emoji_lookup(emoji_string, from_dt):
     expression = []
     for element in emoji_expression:
         if element in pytz.common_timezones:
-            utc_offset = pytz.timezone(element).utcoffset(from_dt)
+            utc_offset = pytz.timezone(element).utcoffset(from_dt.replace(tzinfo=None))
             hours = utc_offset.total_seconds() / (60 * 60)
             expression.append(str(hours))
         else:

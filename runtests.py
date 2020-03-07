@@ -16,6 +16,13 @@ class ConvertTest(unittest.TestCase):
             "2020-03-06 10:00:00",
         )
 
+    def test_aware_datetime(self):
+        from_time = pytz.UTC.localize(datetime(2020, 3, 7, 0, 0, 0))
+        self.assertEqual(
+            convert(from_time, "🗻", "🗽"),
+            pytz.timezone('America/New_York').localize(datetime(2020, 3, 6, 10, 0, 0)),
+        )
+
     def test_convert_string(self):
         self.assertEqual(
             convert("2020-03-07 00:00:00", "🗻", "🗽"),
