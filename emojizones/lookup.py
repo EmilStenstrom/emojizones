@@ -374,11 +374,11 @@ HARD_FLAGS = {
     "🇨🇵": "Europe/Paris",  # CP, Clipperton Island
     "🇩🇬": "Indian/Chagos",  # DG, Diego Garcia
     "🇪🇦": "Africa/Ceuta",  # EA, Ceuta & Melilla
-    "🇪🇺": "Europe/Brussels",  # EU, European Union
+    "🇪🇺": "Europe/Brussels",  # EU, European Union headquarters
     "🇭🇲": "Indian/Kerguelen",  # HM, Heard & McDonald Islands
     "🇮🇨": "Atlantic/Canary",  # IC, Canary Islands
     "🇹🇦": "Atlantic/St_Helena",  # TA, Tristan Da Cunha
-    "🇺🇳": "America/New_York",  # UN, United Nations
+    "🇺🇳": "America/New_York",  # UN, United Nations headquarters
     "🇽🇰": "Europe/Belgrade",  # XK, Kosovo
     "🏴󠁧󠁢󠁥󠁮󠁧󠁿": "Europe/London",  # England
     "🏴󠁧󠁢󠁳󠁣󠁴󠁿": "Europe/London",  # Scotland
