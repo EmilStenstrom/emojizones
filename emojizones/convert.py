@@ -5,6 +5,9 @@ import random
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
+class EmojiZoneException(Exception):
+    pass
+
 def convert(from_dt, from_emoji, to_emoji, as_string=False):
     if isinstance(from_dt, str):
         from_dt = datetime.strptime(from_dt, DATETIME_FORMAT)
@@ -22,6 +25,6 @@ def convert(from_dt, from_emoji, to_emoji, as_string=False):
 
 def emoji_lookup(emoji):
     if emoji not in EMOJI_TO_TIMEZONE:
-        emoji = random.choice(list(EMOJI_TO_TIMEZONE.keys()))
+        raise EmojiZoneException(f"Did not find timezone for {emoji}, consider adding it in a PR!")
 
     return EMOJI_TO_TIMEZONE[emoji]
