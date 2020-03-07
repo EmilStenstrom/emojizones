@@ -7,7 +7,7 @@
 pip install emojizones
 ```
 
-## Example usage
+## Getting started
 
 ```python
 from emojizones import convert
@@ -26,9 +26,22 @@ print(to_time)
 # 2020-03-06 10:00:00
 ```
 
-Note how time has shifted 14 hours, corresponding to the difference between Japan (UTC+9) and New York (UTC-5).
+Note how time has shifted 14 hours back, corresponding to the difference between Japan (UTC+9) and New York (UTC-5).
 
 Couldn't be simpler!
+
+## Technical notes
+
+1. **Country flags** make this project quite usable, all countries are represented!
+
+    ```python
+    convert(
+        "2020-03-07 00:00:00",
+        "🇸🇪",  # Sweden --> Europe/Stockholm
+        "🇫🇮"   # Finland --> Europe/Helsinki
+    )
+    # 2020-03-07 01:00:00
+    ```
 
 <!-- Don't add stuff after the below heading, it will be overwritten by docs_from_lookup -->
 ## Supported emojis
@@ -66,6 +79,9 @@ Couldn't be simpler!
 | Emoji | Timezone | Comment |
 |---|---|---|
 | 🍊 | Africa/Casablanca | Orange-colored citrus fruit, originally from Tangier, Morocco |
+| 🥐 | Europe/Paris | Croissant, France |
+| 🥖 | Europe/Paris | Baguette, France |
+| 🥨 | Europe/Berlin | Pretzel, Germany |
 | 🥯 | Europe/Warsaw | A bagel is a bread product originating in the Jewish communities of Poland |
 | 🍟 | Europe/Paris | FRENCH fries |
 | 🌮 | America/Mexico_City | A Mexican or Tex-Mex taco on a hard or soft corn tortilla |
@@ -160,6 +176,7 @@ Couldn't be simpler!
 
 | Emoji | Timezone | Comment |
 |---|---|---|
+| 🎌 | Asia/Tokyo | Two Japanese Flags |
 | 🇦🇩 | Europe/Andorra | AD |
 | 🇦🇪 | Asia/Dubai | AE |
 | 🇦🇫 | Asia/Kabul | AF |
@@ -417,11 +434,11 @@ Couldn't be simpler!
 | 🇨🇵 | Europe/Paris | CP, Clipperton Island |
 | 🇩🇬 | Indian/Chagos | DG, Diego Garcia |
 | 🇪🇦 | Africa/Ceuta | EA, Ceuta & Melilla |
-| 🇪🇺 | Europe/Brussels | EU, European Union |
+| 🇪🇺 | Europe/Brussels | EU, European Union headquarters |
 | 🇭🇲 | Indian/Kerguelen | HM, Heard & McDonald Islands |
 | 🇮🇨 | Atlantic/Canary | IC, Canary Islands |
 | 🇹🇦 | Atlantic/St_Helena | TA, Tristan Da Cunha |
-| 🇺🇳 | America/New_York | UN, United Nations |
+| 🇺🇳 | America/New_York | UN, United Nations headquarters |
 | 🇽🇰 | Europe/Belgrade | XK, Kosovo |
 | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 | Europe/London | England |
 | 🏴󠁧󠁢󠁳󠁣󠁴󠁿 | Europe/London | Scotland |
