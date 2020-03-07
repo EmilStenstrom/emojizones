@@ -26,7 +26,7 @@ NUMBERS = {
     "7️⃣": "7",
     "8️⃣": "8",
     "9️⃣": "9",
-    # "🔟": "0",
+    "🔟": "10",
 }
 
 class EmojiZoneException(Exception):

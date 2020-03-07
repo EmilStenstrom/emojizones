@@ -71,6 +71,10 @@ class ConvertTest(unittest.TestCase):
             convert("2020-03-07 00:00:00", "🥖", "🥖+4️⃣*3️⃣/2️⃣-1️⃣", as_string=True),
             "2020-03-07 05:00:00",
         )
+        self.assertEqual(
+            convert("2020-03-07 00:00:00", "🥖", "🥖+🔟🔟-1️⃣0️⃣1️⃣0️⃣+🔟", as_string=True),
+            "2020-03-07 10:00:00",
+        )
 
     def test_invalid_artimetic(self):
         with self.assertRaisesRegex(EmojiZoneException, "The first emoji must be a valid timezone, 3 is not"):
