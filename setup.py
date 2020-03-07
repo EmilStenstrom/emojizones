@@ -15,7 +15,7 @@ setup(
     author=u'Emil Stenström',
     author_email='em@kth.se',
     url='https://github.com/EmilStenstrom/emojizones/',
-    install_requires=[],
+    install_requires=["pytz"],
     keywords=['emojizones', 'conll', 'conll-u', 'parser', 'nlp'],
     classifiers=[
         "Programming Language :: Python",
