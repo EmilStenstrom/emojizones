@@ -48,8 +48,8 @@ Couldn't be simpler!
     ```python
     convert(
         "2020-03-07 00:00:00",
-        "🗽",  # Sweden --> Europe/Stockholm
-        "🗽➕4️⃣"   # Finland --> Europe/Helsinki
+        "🗽",      # Statue of Libery, New York --> America/New_York
+        "🗽➕4️⃣"   # America/New_York + 4 --> 'America/Scoresbysund'
     )
     # 2020-03-07 04:00:00
     ```
