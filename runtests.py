@@ -46,6 +46,13 @@ class ConvertTest(unittest.TestCase):
         with self.assertRaisesRegex(EmojiZoneException, "Received empty value instad of a datetime"):
             convert("", "🗻", "🗻")
 
+    def test_invalid_string_input(self):
+        with self.assertRaisesRegex(
+            EmojiZoneException,
+            "Supplied string is not a valid datetime in the '%Y-%m-%d %H:%M:%S' format"
+        ):
+            convert("2020/01/01 00:00:00", "🗻", "🗻")
+
     def test_convert_flags(self):
         self.assertEqual(
             convert(
@@ -61,6 +68,10 @@ class ConvertTest(unittest.TestCase):
         self.assertEqual(
             convert("2020-03-07 00:00:00", "🥖", "🥖➕3️⃣", as_string=True),
             "2020-03-07 03:00:00",
+        )
+        self.assertEqual(
+            convert("2020-03-07 00:00:00", "🥖", "🥖➖3️⃣", as_string=True),
+            "2020-03-06 21:00:00",
         )
         self.assertEqual(
             convert("2020-03-07 00:00:00", "🥖", "🥖➕4️⃣✖3️⃣➗2️⃣➖1️⃣", as_string=True),
@@ -100,14 +111,24 @@ class ConvertTest(unittest.TestCase):
             "Europe/Istanbul"
         )
 
-        with self.assertRaisesRegex(EmojiZoneException, "Emoji aritmetics requires from_dt from where to do lookups"):
-            emoji_lookup("🥖➕2️⃣")
-
         from_time = datetime(2000, 1, 1, 0, 0)
         timezone = emoji_lookup("👨‍🎤➕4️⃣✖3️⃣-👨‍🎤", from_time)
         difference = pytz.timezone(timezone).utcoffset(from_time.replace(tzinfo=None))
         hours = difference.total_seconds() / (60 * 60)
         self.assertEqual(hours, 12.0)
+
+    def test_invalid_emoji_lookup(self):
+        with self.assertRaisesRegex(EmojiZoneException, "Did not find timezone for 🛑, consider adding it in a PR!"):
+            emoji_lookup("🛑")
+
+        with self.assertRaisesRegex(EmojiZoneException, "Emoji aritmetics requires from_dt from where to do lookups"):
+            emoji_lookup("🥖➕2️⃣")
+
+        with self.assertRaisesRegex(
+            EmojiZoneException,
+            "Supplied string is not a valid datetime in the '%Y-%m-%d %H:%M:%S' format"
+        ):
+            emoji_lookup("🗻", from_dt="2020/01/01 00:00:00")
 
     def test_all_timezones_in_lookup_table_are_valid(self):
         for timezone in EMOJI_TO_TIMEZONE.values():

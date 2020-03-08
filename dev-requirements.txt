@@ -1,5 +1,8 @@
-pytz
-grapheme
+coverage
 flake8
+grapheme
+isort
+pytz
+tox
 twine
 wheel
