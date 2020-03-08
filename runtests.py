@@ -1,8 +1,11 @@
-import pytz
 import unittest
 from datetime import datetime
-from emojizones import convert, emoji_lookup, EmojiZoneException
+
+import pytz
+
+from emojizones import EmojiZoneException, convert, emoji_lookup
 from emojizones.lookup import EMOJI_TO_TIMEZONE
+
 
 class ConvertTest(unittest.TestCase):
 
