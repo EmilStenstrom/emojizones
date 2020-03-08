@@ -75,6 +75,15 @@ Couldn't be simpler!
     # 12
     ```
 
+4. To lookup what timezone a specific emoji corresponds to, use the `emoji_lookup` method.
+
+    ```python
+    from emojizones import emoji_lookup
+
+    emoji_lookup("🥖")  # --> "Europe/Paris"
+    emoji_lookup("🥖➕2️⃣", from_dt="2020-03-07 00:00:00")  # --> "Europe/Istanbul"
+    ```
+
 <!-- Don't add stuff after the below heading, it will be overwritten by docs_from_lookup -->
 ## Supported emojis
 

@@ -42,8 +42,8 @@ def convert(from_dt, from_emoji, to_emoji, as_string=False):
         except ValueError:
             raise EmojiZoneException(f"Supplied string is not a valid datetime in the '{DATETIME_FORMAT}' format")
 
-    from_timezone = pytz.timezone(emoji_lookup(from_emoji, from_dt))
-    to_timezone = pytz.timezone(emoji_lookup(to_emoji, from_dt))
+    from_timezone = pytz.timezone(emoji_lookup(from_emoji, from_dt=from_dt))
+    to_timezone = pytz.timezone(emoji_lookup(to_emoji, from_dt=from_dt))
 
     from_dt = from_timezone.localize(from_dt.replace(tzinfo=None))
     to_dt = from_dt.astimezone(to_timezone)
@@ -72,7 +72,13 @@ def possible_timezones(tz_offset):
 
     return results
 
-def emoji_lookup(emoji_string, from_dt):
+def emoji_lookup(emoji_string, from_dt=None):
+    if from_dt and isinstance(from_dt, str):
+        try:
+            from_dt = datetime.strptime(from_dt, DATETIME_FORMAT)
+        except ValueError:
+            raise EmojiZoneException(f"Supplied string is not a valid datetime in the '{DATETIME_FORMAT}' format")
+
     emoji_list = list(grapheme.graphemes(emoji_string))
 
     if len(emoji_list) == 0:
@@ -99,6 +105,9 @@ def emoji_lookup(emoji_string, from_dt):
     for i, element in enumerate(emoji_expression[1:]):
         if element in pytz.common_timezones:
             raise EmojiZoneException(f"Only the first emoji can be a valid timezone, {emoji_list[i + 1]} is not")
+
+    if from_dt is None:
+        raise EmojiZoneException(f"Emoji aritmetics requires from_dt from where to do lookups")
 
     expression = []
     for element in emoji_expression:

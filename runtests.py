@@ -1,7 +1,7 @@
 import pytz
 import unittest
 from datetime import datetime
-from emojizones import convert, EmojiZoneException
+from emojizones import convert, emoji_lookup, EmojiZoneException
 from emojizones.lookup import EMOJI_TO_TIMEZONE
 
 class ConvertTest(unittest.TestCase):
@@ -85,6 +85,19 @@ class ConvertTest(unittest.TestCase):
 
         with self.assertRaisesRegex(EmojiZoneException, "Only the first emoji can be a valid timezone, 🥖 is not"):
             convert("2020-03-07 00:00:00", "🥖", "🥖➕🥖")
+
+    def test_direct_emoji_lookup(self):
+        self.assertEqual(
+            emoji_lookup("🥖"),
+            "Europe/Paris"
+        )
+        self.assertEqual(
+            emoji_lookup("🥖➕2️⃣", from_dt="2020-03-07 00:00:00"),
+            "Europe/Istanbul"
+        )
+
+        with self.assertRaisesRegex(EmojiZoneException, "Emoji aritmetics requires from_dt from where to do lookups"):
+            emoji_lookup("🥖➕2️⃣")
 
     def test_all_timezones_in_lookup_table_are_valid(self):
         for timezone in EMOJI_TO_TIMEZONE.values():
