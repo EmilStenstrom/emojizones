@@ -75,6 +75,10 @@ class ConvertTest(unittest.TestCase):
             convert("2020-03-07 00:00:00", "🥖", "🥖+🔟🔟-1️⃣0️⃣1️⃣0️⃣+🔟", as_string=True),
             "2020-03-07 10:00:00",
         )
+        self.assertEqual(
+            convert("2020-03-07 00:00:00", "🥖", "🥖➕🥖", as_string=True),
+            "2020-03-07 01:00:00",
+        )
 
     def test_invalid_artimetic(self):
         with self.assertRaisesRegex(EmojiZoneException, "The first emoji must be a valid timezone, 3 is not"):
@@ -82,9 +86,6 @@ class ConvertTest(unittest.TestCase):
 
         with self.assertRaisesRegex(EmojiZoneException, "Failed to parse emoji expression '1.0+"):
             convert("2020-03-07 00:00:00", "🥖➕", "🥖")
-
-        with self.assertRaisesRegex(EmojiZoneException, "Only the first emoji can be a valid timezone, 🥖 is not"):
-            convert("2020-03-07 00:00:00", "🥖", "🥖➕🥖")
 
     def test_direct_emoji_lookup(self):
         self.assertEqual(
@@ -98,6 +99,12 @@ class ConvertTest(unittest.TestCase):
 
         with self.assertRaisesRegex(EmojiZoneException, "Emoji aritmetics requires from_dt from where to do lookups"):
             emoji_lookup("🥖➕2️⃣")
+
+        from_time = datetime(2000, 1, 1, 0, 0)
+        timezone = emoji_lookup("👨‍🎤➕4️⃣✖3️⃣-👨‍🎤", from_time)
+        difference = pytz.timezone(timezone).utcoffset(from_time.replace(tzinfo=None))
+        hours = difference.total_seconds() / (60 * 60)
+        self.assertEqual(hours, 12.0)
 
     def test_all_timezones_in_lookup_table_are_valid(self):
         for timezone in EMOJI_TO_TIMEZONE.values():

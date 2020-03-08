@@ -102,10 +102,6 @@ def emoji_lookup(emoji_string, from_dt=None):
     if emoji_expression[0] not in pytz.common_timezones:
         raise EmojiZoneException(f"The first emoji must be a valid timezone, {emoji_expression[0]} is not")
 
-    for i, element in enumerate(emoji_expression[1:]):
-        if element in pytz.common_timezones:
-            raise EmojiZoneException(f"Only the first emoji can be a valid timezone, {emoji_list[i + 1]} is not")
-
     if from_dt is None:
         raise EmojiZoneException(f"Emoji aritmetics requires from_dt from where to do lookups")
 

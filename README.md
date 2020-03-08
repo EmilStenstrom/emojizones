@@ -65,23 +65,24 @@ Couldn't be simpler!
     # 2020-03-07 05:00:00
     ```
 
-3. This means you can use this as a calculator if you want! Let's say you want to calculate `4 * 3`.
-
-    ```python
-    from_time = datetime(2000, 1, 1, 0, 0, 0)
-    time_difference = convert(from_time, "👨‍🎤", "👨‍🎤➕4️⃣✖3️⃣").replace(tzinfo=None) - from_time
-    hours = time_difference.total_seconds() / (60 * 60)
-    hours
-    # 12
-    ```
-
-4. To lookup what timezone a specific emoji corresponds to, use the `emoji_lookup` method.
+3. To lookup what timezone a specific emoji corresponds to, use the `emoji_lookup` method.
 
     ```python
     from emojizones import emoji_lookup
 
     emoji_lookup("🥖")  # --> "Europe/Paris"
     emoji_lookup("🥖➕2️⃣", from_dt="2020-03-07 00:00:00")  # --> "Europe/Istanbul"
+    ```
+
+4. This means you can use this as a calculator if you want! Let's say you want to calculate `4 * 3`.
+
+    ```python
+    from_time = datetime(2000, 1, 1, 0, 0)
+    timezone = emoji_lookup("👨‍🎤➕4️⃣✖3️⃣-👨‍🎤", from_time)
+    difference = pytz.timezone(timezone).utcoffset(from_time.replace(tzinfo=None))
+    hours = difference.total_seconds() / (60 * 60)
+    hours
+    # 12
     ```
 
 <!-- Don't add stuff after the below heading, it will be overwritten by docs_from_lookup -->
@@ -92,13 +93,13 @@ Couldn't be simpler!
 | Emoji | Timezone | Comment |
 |---|---|---|
 | 💂 | Europe/London | British guard |
-| 💂‍♂️ | Europe/London | British guard |
-| 💂‍♀️ | Europe/London | British guard |
-| 👨‍🎤 | Europe/London | David Bowie, born in London |
-| 👩‍🎤 | Europe/London | David Bowie, born in London |
+| 💂‍♂️ | Europe/London | British guard, male |
+| 💂‍♀️ | Europe/London | British guard, female |
+| 👨‍🎤 | Europe/London | David Bowie, born in London, male |
+| 👩‍🎤 | Europe/London | David Bowie, born in London, female |
 | 🧛 | Europe/Bucharest | Dracula, Transylvania, Romania |
-| 🧛‍♂️ | Europe/Bucharest | Dracula, Transylvania, Romania |
-| 🧛‍♀️ | Europe/Bucharest | Dracula, Transylvania, Romania |
+| 🧛‍♂️ | Europe/Bucharest | Dracula, Transylvania, Romania, male |
+| 🧛‍♀️ | Europe/Bucharest | Dracula, Transylvania, Romania, female |
 | 👘 | Asia/Tokyo | A traditional Japanese robe that can be worn by women or men |
 | 👑 | Europe/London | The Queen, Longond, Great Britain |
 
