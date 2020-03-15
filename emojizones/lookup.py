@@ -14,6 +14,7 @@ PEOPLE = {
 
 # https://emojipedia.org/nature/
 NATURE = {
+    "🦄": "UTC",  # Unicorn, fictional fairy tale creature, like programmers’ idea that time processing should be easy
     "🐲": "Asia/Shanghai",  # Chinese dragon
     "🐉": "Asia/Shanghai",  # Chinese dragon
     "🌍": "Africa/Kinshasa",  # Map centered on Africa, which has DNC as the centre
