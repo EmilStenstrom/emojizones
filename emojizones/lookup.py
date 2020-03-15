@@ -1,13 +1,13 @@
 # https://emojipedia.org/people/
 PEOPLE = {
     "💂": "Europe/London",  # British guard
-    "💂‍♂️": "Europe/London",  # British guard
-    "💂‍♀️": "Europe/London",  # British guard
-    "👨‍🎤": "Europe/London",  # David Bowie, born in London
-    "👩‍🎤": "Europe/London",  # David Bowie, born in London
+    "💂‍♂️": "Europe/London",  # British guard, male
+    "💂‍♀️": "Europe/London",  # British guard, female
+    "👨‍🎤": "Europe/London",  # David Bowie, born in London, male
+    "👩‍🎤": "Europe/London",  # David Bowie, born in London, female
     "🧛": "Europe/Bucharest",  # Dracula, Transylvania, Romania
-    "🧛‍♂️": "Europe/Bucharest",  # Dracula, Transylvania, Romania
-    "🧛‍♀️": "Europe/Bucharest",  # Dracula, Transylvania, Romania
+    "🧛‍♂️": "Europe/Bucharest",  # Dracula, Transylvania, Romania, male
+    "🧛‍♀️": "Europe/Bucharest",  # Dracula, Transylvania, Romania, female
     "👘": "Asia/Tokyo",  # A traditional Japanese robe that can be worn by women or men
     "👑": "Europe/London",  # The Queen, Longond, Great Britain
 }
