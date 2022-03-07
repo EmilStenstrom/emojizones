@@ -101,7 +101,7 @@ Couldn't be simpler!
 | 🧛‍♂️ | Europe/Bucharest | Dracula, Transylvania, Romania, male |
 | 🧛‍♀️ | Europe/Bucharest | Dracula, Transylvania, Romania, female |
 | 👘 | Asia/Tokyo | A traditional Japanese robe that can be worn by women or men |
-| 👑 | Europe/London | The Queen, Longond, Great Britain |
+| 👑 | Europe/London | The Queen, London, Great Britain |
 
 ### Nature
 
